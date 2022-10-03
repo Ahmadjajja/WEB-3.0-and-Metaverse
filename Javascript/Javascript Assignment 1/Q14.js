@@ -3,25 +3,5 @@
 
 var peoples = ["anyone", "living", "deceased"];
 for (let index = 0; index < peoples.length; index++) {
-    if (peoples[index] === "deceased") {
-        console.log("You’ll have to think of someone else to invite.")
-    }
-}
-
-for (let index = 0; index < peoples.length; index++) {
-    if (peoples[index] === "deceased") {
-        console.log(peoples[index] + " people can’t make it")
-    }
-}
-
-for (let index = 0; index < peoples.length; index++) {
-    if (peoples[index] === "deceased") {
-        peoples[index] = "crickter";
-        console.log(`replaced the name of the guest who can’t make dinner with the name of the new person (${peoples[index]}) you are inviting.`)
-    }
-}
-for (let index = 0; index < peoples.length; index++) {
-    if (peoples[index] === "living" || peoples[index] === "anyone") {
-        console.log(`From these guys one that  (${peoples[index]}) can make dinner is inviting`);
-    }
+    console.log(`${peoples[index]} you are invited at dinner`);
 }

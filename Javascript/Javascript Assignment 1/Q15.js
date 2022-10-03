@@ -1,36 +1,63 @@
 //Ahmad Jajja WEB&MOBILE APP CERTIFIED
-//Print a second set of invitation messages, one for each person who is still in your list.
+//Changing Guest List: You just heard that one of your guests can’t make the dinner, so you need to send out a new set of invitations. You’ll have to think of someone else to invite
 
-var guests = ["anyone", "living", "deceased"];
 
-for (let index = 0; index < guests.length; index++) {
-    const element = guests[index];
-    console.log(`${element} , you find people find bigger dinner`);
+
+
+var peoples = ["anyone", "living", "deceased"];
+for (let index = 0; index < peoples.length; index++) {
+    if (peoples[index] === "deceased") {
+        console.log("You’ll have to think of someone else to invite.")
+    }
 }
 
-guests.unshift("Cricketer")
+// first portion of problem
 
-console.log("Value after adding element at start");
-
-for (let index = 0; index < guests.length; index++) {
-    const element = guests[index];
-    console.log(`${element} `);
+for (let index = 0; index < peoples.length; index++) {
+    if (peoples[index] === "deceased") {
+        console.log(peoples[index] + " people can’t make it")
+    }
 }
 
-guests.splice(2,0,"footballer");
+//second portion of problem
 
-console.log("Value after adding element at middle");
-
-for (let index = 0; index < guests.length; index++) {
-    const element = guests[index];
-    console.log(`${element} `);
+for (let index = 0; index < peoples.length; index++) {
+    if (peoples[index] === "deceased") {
+        peoples[index] = "crickter";
+        console.log(`replaced the name of the guest who can’t make dinner with the name of the new person (${peoples[index]}) you are inviting.`)
+    }
 }
-guests.push("Coders");
 
-console.log("Value after adding element at end");
+//Third portion of problem
 
-for (let index = 0; index < guests.length; index++) {
-    const element = guests[index];
-    console.log(`${element} `);
+for (let index = 0; index < peoples.length; index++) {
+    if (peoples[index] === "living" || peoples[index] === "anyone") {
+        console.log(`From these guys one that  (${peoples[index]}) can make dinner is inviting`);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

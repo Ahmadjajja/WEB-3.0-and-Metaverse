@@ -1,5 +1,5 @@
-console.log("Javascript_Problem_Q_NO_3_");
-console.log(" Name Cases: Store a person’s name in a variable, and then print that person’s name in lowercase, uppercase, and titlecase.");
+//Ahmad Jajja WEB&MOBILE APP CERTIFIED
+//Name Cases: Store a person’s name in a variable, and then print that person’s name in lowercase, uppercase, and titlecase
 
 var myName = "ahmad jajja";
 console.log("My name in lower case =>",myName.toLowerCase());

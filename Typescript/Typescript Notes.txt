@@ -1,0 +1,11 @@
+==========TypeScript Notes========== 
+
+It is on top of javascript.
+
+Note:
+	"any" is a dangerous type in typescript.We can pass everything in this.
+	It may be any type and this can effect the whole system.
+What is params in Typescript?
+what is interfaces?
+
+

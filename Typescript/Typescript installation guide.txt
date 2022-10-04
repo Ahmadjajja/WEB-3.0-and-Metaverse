@@ -1,0 +1,6 @@
+// install lib..
+//-> npm install typescript -g
+//-> npm install nodemon -g
+// run in new CMD(open two terminals)
+//-> tsc app.ts -w
+//-> nodemon app.js

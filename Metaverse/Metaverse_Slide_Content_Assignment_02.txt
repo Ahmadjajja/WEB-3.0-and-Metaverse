@@ -24,7 +24,7 @@ the World Wide Web, which is typically written in the HyperText Markup
 Language (HTML) and enables users to instantly access a nearly infinite
 extent of online content by clicking on a given piece of text
 
-
+ 
 
 
 

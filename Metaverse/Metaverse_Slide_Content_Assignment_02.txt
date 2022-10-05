@@ -21,7 +21,7 @@ Science Foundation. The second essay, “As We May Think,” app.
 4) Bush’s Memex was informing
 the creation and evolution of “hypertext,” one of the underlying concepts of
 the World Wide Web, which is typically written in the HyperText Markup
-Language (HTML) and enables users to instantly access a nearly infinite
+Language (HTML) and enables users to instantly access a nearly infinite 
 extent of online content by clicking on a given piece of text
 
  

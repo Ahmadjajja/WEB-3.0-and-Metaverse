@@ -26,6 +26,9 @@ Types:-
 	(8) Any
 	(9) union
 	(10)literal
+	(11)function
+	(12)unknown
+	(13)
 
 
 *** typeof variableName => "typeof" built-in keyword will return type of specific variable.
@@ -85,9 +88,23 @@ Types:-
    		}
 
 -)type aliases   syntax=> type Combineable = number | string 
+	For example:
+		type conversionDescriptor = 'as-string' | 'as-number'  //type aliases
+-) Return type
+	Return type may be void or any other.
 
+-) function type   syntax: let combineValues = (a: number, b: number) => number        
+		       This above line of code (a: number, b: number) => number basically represent the type.
 
+	~this above syntax tell that if two parameters are number then 
 
+-) unknown type  =>
+	~Anything is assignable to unknown, but unknown isn’t assignable to anything but itself.
+	~In other words, the unknown type is a restrictive version of the type any.
+-) never
+	~The never type contains no value.
+	~The never type represents the return type of a function that always throws an error 
+	 or a function that contains an indefinite loop.
 
 
 

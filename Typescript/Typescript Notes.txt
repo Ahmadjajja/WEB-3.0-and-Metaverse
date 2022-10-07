@@ -8,4 +8,94 @@ Note:
 What is params in Typescript?
 what is interfaces?
 
+		===============================Typescript from Academind Started here============================
+
+Javascript VS Typescript:
+	The Key difference is: Javascript uses "dynamic types"(resolved at runtime),
+	Typescript uses "static types"(set during development).
+
+
+Types:-
+	(1) number 
+	(2) string 
+	(3) boolean
+	(4) object
+	(5) Array
+	(6) Tuple
+	(7) enum
+	(8) Any
+	(9) union
+	(10)literal
+
+
+*** typeof variableName => "typeof" built-in keyword will return type of specific variable.
+*** throw new Error('Incorrect input!') => This statement uses for throwing error in console.
+
+
+-)Tuple:
+	~ fixed length array with multiple known types with same order. 
+	~ when we assign values to a tuple, these values must match the types defined 
+	  in the tuple declaration in the same order.
+
+	Array use case => 
+
+	For arrays with multiple data types, we can make use of the any type
+	or the | (bitwise OR) operator.
+	However, in this case, the order of the data is not set in stone.
+
+		Code Example:
+
+		let arr: (string | number)[];
+		arr = ['Alex', 2020];
+		console.log(arr);
+
+	Tuple use case => 
+
+	With tuples, we can have a list of multiple data types whereby the order 
+	in which we pass the data type must conform to the order when the tuple 
+	was declared. In essence, the structure of the tuple needs to stay the same. 
+	
+		Code Example:
+
+		let tup: [string, number];
+		tup = ['Alex', 19087];
+
+	
+	
+-)enum:    syntax=> enum{NEW, OLD}
+	~Added by Typescript: Automatically enumerated global constants identifiers
+
+
+
+-)any:	   syntax=> *
+	~Any kind of value, no specific type assignment
+
+-)union:   syntax=> number | string (in function parameter)
+	~uses for selecting one type from multiple types
+	example: 
+		function combine(input1:number | string, input2: number | string) {
+		}
+
+-)literal types: 
+	Use the string literal types with union types and type aliases to define types 
+	that accept a finite set of string literals
+	
+	Example: 
+		function combine(input1:number | string, input2: number | string, resultConversion: 'as-string' | 'as-number') {
+   		}
+
+-)type aliases   syntax=> type Combineable = number | string 
+
+
+
+
+
+
+
+
+
+
+
+
+
 

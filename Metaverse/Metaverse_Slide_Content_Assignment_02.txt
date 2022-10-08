@@ -31,7 +31,7 @@ extent of online content by clicking on a given piece of text
 
 Metaverse 
 
-chapter 1)
+chapter (1)...
 
 
 a) It is here that fears of a Metaverse dystopia seem fair, rather than
@@ -41,6 +41,17 @@ spent inside virtual worlds, rather than just extended or aided through
 digital devices and software. It will be a parallel plane of existence for
 millions, if not billions, of people, that sits atop our digital and physical
 economies, and unites both.
+
+chapter (3)...
+
+“A massively scaled and interoperable network of real-time rendered 3D
+virtual worlds that can be experienced synchronously and persistently by an
+effectively unlimited number of users with an individual sense of presence,
+and with continuity of data, such as identity, history, entitlements, objects,
+communications, and payments.”
+
+This chapter all about this defination and will explain each term in this 
+chapter.
 
  
 

@@ -1,6 +1,21 @@
+For single file
+
 // install lib..
-//-> npm install typescript -g
-//-> npm install nodemon -g
+	-> npm install typescript -g
+	-> npm install nodemon -g
 // run in new CMD(open two terminals)
-//-> tsc app.ts -w
-//-> nodemon app.js
+	-> tsc app.ts -w     0r --watch
+	-> nodemon app.js
+
+For multiple ts files in bigger project this commands are not the case.
+So for multiple files:
+
+//tsc --init
+	-> This is only required once and initialized this project in which
+	   we run this command as a typescript project. 
+	-> creates tsconfig.json file	
+tsconfig.json 
+	-> This json file actually tells the compiler how it should actually compile ts to js file.
+//tsc -w 
+	-> This command compiles all ts files to js files in watch mode
+//watchnode

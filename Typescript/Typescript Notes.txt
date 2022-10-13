@@ -105,6 +105,11 @@ Types:-
 	~The never type contains no value.
 	~The never type represents the return type of a function that always throws an error 
 	 or a function that contains an indefinite loop.
+-> exclude 
+	uses for excluding specific file from compiling in from whom project.
+-> include  
+	-> uses for including specific file to whole project to compile
+	-> Here we write every file that we are gonna compile.
 
 
 

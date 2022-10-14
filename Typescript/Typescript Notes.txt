@@ -55,7 +55,7 @@ Types:-
 	Tuple use case => 
 
 	With tuples, we can have a list of multiple data types whereby the order 
-	in which we pass the data type must conform to the order when the tuple 
+	in which we pass the data type must confirm to the order when the tuple 
 	was declared. In essence, the structure of the tuple needs to stay the same. 
 	
 		Code Example:

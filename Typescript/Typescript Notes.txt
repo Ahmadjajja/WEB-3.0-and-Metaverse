@@ -160,6 +160,9 @@ Types:-
 -> Ambient types are types that get added to the global execution scope.
 
 
+...
+
+
 
 
 

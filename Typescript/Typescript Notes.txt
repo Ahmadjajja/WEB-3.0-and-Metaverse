@@ -117,7 +117,7 @@ Types:-
 ======================================================================================================================
 
 	
-==================Classes Concept======================
+					==================Classes Concept======================
 
 
 1)class
@@ -130,37 +130,91 @@ Types:-
 8)Method overriding
 9)This keyword
 
-================== enums ==============================
-================== tuples =============================
-================== aliases ============================
-================== interfaces =========================
-================== enums ==============================
-================== enums ==============================
-================== Objects ============================
+Some terms in sence of classes are as follows:
+
+1)Private
+2)Public
+3)Protected
+4)Super	
+5)extends	
+6)readonly
+	-> Read-only members can be accessed outside the class, but their value cannot be changed. 
+	Since read-only members cannot be changed outside the class, they either need to be initialized
+	at declaration or initialized inside the class constructor.
+7)interfaces & Impliments w.r.t classes
+	-> Interface declares data members and member functions .
+
+		// Creating an interface
+		interface A {
+		  display(): void;
+		}
+  
+		class B implements A {
+		  display() {
+		    console.log("B");
+		  }
+		}
+  
+		class C implements A {
+  
+		  //  Throws error:  Class 'C' incorrectly
+		  // implements interface 'A'.
+		  //  Property 'display' is missing in type
+		  // 'C' but required in type 'A'.
+		  Display() {
+		    console.log("C");
+		  }
+		}
+Remember!
+		A class can implement multiple interfaces by listing each one after implements, 
+		separated by a comma like so: class Rectangle implements Shape, Colored {
+
+8)Abstract
+	Confusion
+					================== Generics ===========================
+
+					================== Utility Types ======================
+					================== enums ==============================
+An enum is a special "class" that represents a group of constants (unchangeable variables).
+					================== tuples =============================
+					================== aliases ============================
+
+Type Aliases allow defining types with a custom name (an Alias).
+Type Aliases can be used for primitives like string or more complex types such as objects and arrays:
+
+					================== interfaces =========================
+
+Interfaces are similar to type aliases, except they only apply to object types.
+Note! 
+	Extending an interface means you are creating a new interface
+	with the same properties as the original, plus something new.
+
+					================== enums ==============================
+					================== Objects ============================
 
 1)Duck typing
 
-================== Arrays =============================
-================== strings ============================
-================== Numbers ============================
-================== Functions ==========================
-================== loops ==============================
-================== Decision making ====================
-================== Operators ==========================
-================== Variables ==========================
+					================== Arrays =============================
+					================== strings ============================
+					================== Numbers ============================
+					================== Functions ==========================
+					================== loops ==============================
+					================== Decision making ====================
+					================== Operators ==========================
+					================== Variables ==========================
 
 1)Type Assertion
 2)Inferred Typing
-================== types ==============================
+					================== types ==============================
 1)any type
 2)built-in types
-================== Namespaces =========================
-================== Modules ============================
-================== Ambients ===========================
+					================== Namespaces =========================
+					================== Modules ============================
+					================== Ambients ===========================
 -> Ambient types are types that get added to the global execution scope.
 
 
-...
+
 
 
 

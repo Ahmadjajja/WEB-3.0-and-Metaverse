@@ -1,0 +1,11 @@
+{
+  "name": "concurrency-chapter-13",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "ahmadjajja",
+  "license": "ISC"
+}

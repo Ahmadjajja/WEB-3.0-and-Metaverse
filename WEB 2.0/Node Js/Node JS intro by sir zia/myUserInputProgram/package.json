@@ -1,0 +1,14 @@
+{
+  "name": "myuserinputprogram",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "ahmadjajja",
+  "license": "ISC",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}

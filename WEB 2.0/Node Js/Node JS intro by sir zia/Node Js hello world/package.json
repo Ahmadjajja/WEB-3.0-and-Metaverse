@@ -1,0 +1,11 @@
+{
+  "name": "nodeintro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "npm run"
+  },
+  "author": "ahmadjajja",
+  "license": "ISC"
+}

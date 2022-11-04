@@ -56,4 +56,4 @@ var anotherFunction = (Name, callback) => {
   callback(fullNameArray);
 }
 
-anotherFunction("Ahmad Jajja", greet);
+anotherFunction("Ahmad jajja", greet);

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h1>Javascript Advance Concepts</h1>
+    <hr>
+
+    <!-- Javascript Async/Await -->
+    <div>
+        <h2>Javascript Async/Await</h2>
+        <p>"async and await make promises easier to write"</p>
+        <p>
+            <strong>async</strong> is a function that returns a promise.
+            <br>
+            <strong>await</strong> is used to wait for the promise to resolve.
+        </p>
+
+        <h3>Async</h3>
+        <p><strong>async</strong> is a function that returns a promise.</p>
+        <pre>
+            <code>
+                async function myFunction() {
+                    return "Hello"; // it will work as a promise resolved
+
+                    // throw new Error("Something went wrong"); // it will work as a promise rejected
+                }
+
+                myFunction()
+                  .then(function(value) { console.log(value) })
+                  .catch(function(error) { console.log(error) });
+            </code>
+        </pre>
+
+        <h3>Await</h3>
+        <p><strong>await</strong> is used to wait for the promise to resolve. and not let next line to be executed before the promise resolved.</p>
+        <pre>
+            Syntax:
+            <code>let value = await promise;</code>
+        </pre>
+
+        <p style="color: red;">The await keyword can only be used inside an async function.</p>
+        <pre>
+            <code>
+                async function getData() {
+                    let response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+                    let data = await response.json();
+
+                    console.log(data)
+                }
+
+                getData()
+            </code>
+    </div>
+
+
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

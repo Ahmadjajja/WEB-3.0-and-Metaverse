@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h1>Array.forEach() - Array.map() - Array.filter()</h1>
+    <hr>
+
+    <div>
+        <h2>Array.forEach()</h2>
+        <p>The forEach() method calls a function (a callback function) once for each array element.</p>
+        <p>The callback function is invoked with three arguments:</p>
+        <ul>
+            <li>the value of the element</li>
+            <li>the index of the element</li>
+            <li>the Array object being traversed</li>
+        </ul>
+        <p style="color: red;">Note: The forEach() method does not change the original array. It returns undefined.</p>
+
+        <h3>Example</h3>
+        <p>The following code traverses an array and prints its elements:</p>
+        <pre>
+            <code>
+                var fruits = ["Banana", "Orange", "Apple", "Mango"];
+                fruits.forEach(function(element, index, array) {
+                    console.log(element, index, array);
+                });
+            </code>
+        </pre>
+    </div>
+
+    <div id="abc">
+        <h2>Array.map()</h2>
+        <p>The map() method creates a new array with the results of calling a function for every array element.</p>
+        <p>The map() method calls the provided function once for each element in an array, in order.</p>
+        <p style="color: red;">Note: map() does not change the original array.</p>
+
+        <h3>Example</h3>
+        <p>The following code traverses an array and prints its elements:</p>
+        <pre>
+            <code>
+                var fruits = ["Banana", "Orange", "Apple", "Mango"];
+                var new_fruits = fruits.map(function(element, index, array) {
+                    return element + " is at index " + index;
+                });
+                console.log(new_fruits);
+            </code>
+        </pre>
+    </div>
+
+    <div>
+        <h2>Array.filter()</h2>
+        <p>The filter() method creates an array filled with all array elements that pass a test (provided as a
+            function).</p>
+        <p style="color: red;">Note: filter() does not change the original array.</p>
+
+        <h3>Example</h3>
+        <p>The following code traverses an array and prints its elements:</p>
+        <pre>
+            <code>
+                var fruits = ["Banana", "Orange", "Apple", "Mango"];
+                var new_fruits = fruits.filter(function(element, index, array) {
+                    return element.length > 5;
+                });
+                console.log(new_fruits);
+            </code>
+        </pre>
+
+    </div>
+
+    <div>
+        <h2>Array.find()</h2>
+        <p>The find() method returns the value of the first element in the provided array that satisfies the provided
+            testing function.</p>
+        <p style="color: red;">Note: find() does not change the original array.</p>
+
+        <h3>Example</h3>
+        <p>The following code finds the first element in an array that satisfies a condition:</p>
+        <pre>
+            <code>
+                var numbers = [4, 9, 16, 25];
+                var found = numbers.find(function(element, index, array) {
+                    return element > 10;
+                });
+                console.log(found);
+            </code>
+        </pre>
+
+    </div>
+
+    <script src="js/map.js"></script>
+    <script src="js/filter.js"></script>
+</body>
+
+</html>

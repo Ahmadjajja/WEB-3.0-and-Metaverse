@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h1>Advance JavaScript Concepts</h1>
+    <hr>
+
+    <!-- Javascript Closures -->
+    <div>
+        <h2>Javascript Closures</h2>
+        <p>Closure is one of important concept in JavaScript. It is widely discussed and still confused concept. Let's
+            understand what the closure is.</p>
+        <p>Closure means that an inner function always has access to the vars and parameters of its outer function, even
+            after the outer function has returned.</p>
+
+        <h3>In simple words Closure can be defined as:</h3>
+        <h3>"We can return a nested function from a function that can be used later"</h3>
+
+        <hr>
+        <h3>Example 1</h3>
+        <pre>
+            <code>
+                
+                function OuterFunction() {
+        
+                    var outerVariable = 100;
+        
+                    function InnerFunction() {
+                        alert(outerVariable);
+                    }
+        
+                    return InnerFunction;
+                }
+                var innerFunc = OuterFunction();
+        
+                innerFunc(); // 100
+
+               
+            </code>
+        </pre>
+
+        <h3>Example 2</h3>
+        <pre>
+            <code>
+                
+                function Counter() {
+                    var counter = 0;
+        
+                    function IncreaseCounter() {
+                        return counter += 1;
+                    };
+        
+                    return IncreaseCounter;
+                }
+        
+                var counter = Counter();
+                alert(counter()); // 1
+                alert(counter()); // 2
+                alert(counter()); // 3
+
+               
+            </code>
+        </pre>
+    </div>
+
+
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

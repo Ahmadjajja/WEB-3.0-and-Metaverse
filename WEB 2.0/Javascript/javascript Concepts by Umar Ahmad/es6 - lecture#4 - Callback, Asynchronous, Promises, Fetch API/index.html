@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h1>Javascript Advance Concepts</h1>
+    <hr>
+
+    <!-- Javascript Callbacks (es5) -->
+    <div>
+        <h2>Javascript Callbacks (es5)</h2>
+        <h3>"I will call back later!"</h3>
+        <p>
+            <strong>Javascript Callbacks</strong> are functions that are passed to another function as an argument.
+        </p>
+        <p>
+            A callback function can run after another function has finished running.
+        </p>
+
+        <h3>Example</h3>
+        <p>
+            Using a callback, you could call the calculator function (myCalculator) with a callback, and let the
+            calculator function run the callback after the calculation is finished:
+        </p>
+        <pre>
+            <code>
+                function myDisplayer(some) {
+                    document.getElementById("demo").innerHTML = some;
+                }
+                  
+                function myCalculator(num1, num2, myCallback) {
+                    let sum = num1 + num2;
+                    myCallback(sum);
+                }
+                  
+                myCalculator(5, 5, myDisplayer);
+            </code>
+        </pre>
+
+        <p>
+            The above code will display the sum of 5 and 5 in the HTML element with the id "demo".
+        </p>
+
+        <h4 style="background-color: red; color: white; padding: 20px;">
+            When you pass a function as an argument, remember not to use parenthesis.
+            <br>
+            <br>
+            Right: myCalculator(5, 5, myDisplayer);
+            <br>
+            <br>
+            Wrong: myCalculator(5, 5, myDisplayer());
+        </h4>
+
+    </div>
+
+
+    <!-- Asynchronous JavaScript (es5) -->
+    <div>
+        <h2>Asynchronous JavaScript (es5)</h2>
+        <h3>"I will finish later!"</h3>
+
+        <p>Functions running in parallel with other functions are called asynchronous</p>
+        <p>A good example is JavaScript <b>setTimeout()</b> </p>
+        <pre>
+            <code>
+                function myFunction() {
+                    document.getElementById("demo").innerHTML = "I love Pakistan !!";
+                }
+                setTimeout(myFunction, 3000);
+
+                console.log("I love Pakistan too!");
+
+
+                // The function (myFunction) above will run after 3 seconds. 
+                // And the console.log function will run before the function (myFunction) above completed.
+                // Both the code is running in parallel instead of waiting for the above one to be completed.
+                // It's called code running asynchronously in JavaScript.
+            </code>
+        </pre>
+
+        <p>In the example above, myFunction is used as a callback.</p>
+        <p>myFunction is passed to setTimeout() as an argument.</p>
+        <p>3000 is the number of milliseconds before time-out, so myFunction() will be called after 3 seconds.</p>
+
+    </div>
+
+    <!-- Javascript Promises (es6) -->
+    <div>
+        <h2>Javascript Promises (es6)</h2>
+        <p>Promises are one of the ways we can deal with asynchronous operations in JavaScript.</p>
+
+        <h3>What is a Promise?</h3>
+        <p>A promise in JavaScript is similar to a promise in real life. When we make a promise in real life, it is a
+            guarantee that we are going to do something in the future. Because promises can only be made for the future.
+        </p>
+
+        <p>A promise has 2 possible outcomes: it will either be kept when the time comes, or it won’t.</p>
+
+        <p>This is also the same for promises in JavaScript. When we define a promise in JavaScript, it will be resolved
+            when the time comes, or it will get rejected.</p>
+
+        <h3>When to use promises?</h3>
+        <p> Lets say your app needs to make an API call to check for DB connection. It may take multiple seconds to
+            connect your website with DB connection.</p>
+        <p> While the connection is in process, you can't allow your users to keep waiting for the database connection.
+            To overcome this, You can use promises to handle the response meanwhile other functions are running.</p>
+
+        <pre>
+            let myPromise = new Promise((resolve, reject) => {
+                
+                // let's say this connection variable would be set to true/false when the time comes 
+                // may be after 3-4 seconds after page loaded.
+
+                let connection = false; 
+    
+                if (connection) {
+                    resolve('Connected');
+                } else {
+                    reject('Connection failed');
+                }
+
+            });
+    
+            
+            //This code below would only run; once the promise above is resolved or rejected.
+            myPromise
+                .then((message) => {
+                    console.log(message);
+                }).catch((message) => {
+                    console.log(message);
+                });
+        </pre>
+    </div>
+
+    <!-- JavaScript Fetch API (es6) -->
+    <div>
+        <h2>JavaScript Fetch API (es6)</h2>
+        <p>The Fetch API interface allows web browser to make HTTP requests to web servers.</p>
+
+        <h3>Dummy Data</h3>
+        <p>Dummy Data available at: https://jsonplaceholder.typicode.com/todos/1</p>
+
+        <div id="resultDiv">Result to show in this Div After getting Data from Server</div>
+
+        <pre>
+            fetch('https://jsonplaceholder.typicode.com/todos/1')
+                .then( response => response.json() )
+                .then(json => {
+                    console.log(json)
+                    document.getElementById("resultDiv").innerHTML = json.title;
+                })
+        </pre>
+    </div>
+
+
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

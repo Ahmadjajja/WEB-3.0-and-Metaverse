@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <h1>Targetting Elements</h1>
+    <hr>
+
+    <h2>Demo</h2>
+
+    <div id="paragraphs">
+        <p class="firstPar">This is a paragraph</p>
+        <p>This is 2nd paragraph</p>
+        <p>This is 3rd paragraph</p>
+    </div>
+
+    <div id="moreParagraphs">
+        <p class="firstPar">This is 3rd paragraph</p>
+        <p>This is 4th paragraph</p>
+        <p>This is 5th paragraph</p>
+        <input type="text" id="calculatorInput" placeholder="Enter values">
+    </div>
+
+
+
+
+    <h2>Output</h2>
+    <div id="result"></div>
+
+    <script>
+        
+        var par = document.getElementById("moreParagraphs").getElementsByTagName("p");
+        console.log(par)
+        document.getElementById("result").innerHTML= par[0].innerHTML;
+
+    </script>
+</body>
+
+</html>

@@ -194,10 +194,10 @@ const numberToWordConversion = (num) => {                         //parent Funct
         arrNums.push(anyNumber.slice(-11));  
 
         anyNumber = anyNumber.slice(0, anyNumber.length - 11);
-        console.log(arrNums[index]);
+        // console.log(arrNums[index]);
         word = elevenDigitConverter(arrNums[index]);
-        console.log(`word at ${index} : ${word} `);
-        console.log(anyNumber);
+        // console.log(`word at ${index} : ${word} `);
+        // console.log(anyNumber);
         arrWords.push(word);
 
         index++;

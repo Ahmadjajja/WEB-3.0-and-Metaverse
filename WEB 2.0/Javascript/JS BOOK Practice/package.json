@@ -1,0 +1,16 @@
+{
+  "name": "simpleserver",
+  "version": "1.0.0",
+  "description": "This is basic simple server for just understanding of what is server",
+  "main": "index.mjs",
+  "type": "module",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "ahmadjajja",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "prompt-sync": "^4.2.0"
+  }
+}

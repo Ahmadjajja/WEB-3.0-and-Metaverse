@@ -76,27 +76,26 @@
 // // If data is an odd number, return a promise resolved 1 second later and give the data "odd" (in a string)
 // // If data is an even number, return a promise rejected 2 seconds later and give the data "even" (in a string)
 
-// function job1(data) {
-//     let promise = new Promise((resolved, rejected) => {
-//         if(isNaN(data)){
-//             rejected("error")
-//             console.log("error");
-//         }else if(data % 2 != 0){
-//             setTimeout(()=> {
-//                 resolved("odd");
-//                 console.log("odd");
-//             },1000)
-//         }else {
-//             setTimeout(()=> {
-//                 resolved("even");
-//                 console.log("even");
-//             }, 2000)
-//         }
-//     })
-//     return promise;
-// }
+function job1(data) {
+    return new Promise((resolved, rejected) => {
+        if(isNaN(data)){
+            rejected("error")
+            console.log("error");
+        }else if(data % 2 != 0){
+            setTimeout(()=> {
+                resolved("odd");
+                console.log("odd");
+            },1000)
+        }else {
+            setTimeout(()=> {
+                resolved("even");
+                console.log("even");
+            }, 2000)
+        }
+    })
+}
 
-// job1("230");
+console.log(job1(56));
 
 
 

@@ -24,15 +24,6 @@
 
 // // job(func1, func2)
 
-
-
-
-
-
-
-
-
-
 //     //What's the hell callback complexity ?
 //     function job1(callback) {
 //         setTimeout(function() {
@@ -54,15 +45,6 @@
 //         });
 //     });
 
-
-
-
-
-
-
-
-
-
 // //promises practice
 
 // function job() {       // out of understanding   ,,, must solve this.
@@ -79,15 +61,6 @@
 // }
 
 // job();
-
-
-
-
-
-
-
-
-
 
 // Let's do a harder exercise. In this code, your function receives a parameter data.
 // You must modify the code below based on the following rules:
@@ -118,14 +91,6 @@
 
 // console.log(job1(56));    // Promise { <pending> }
 
-
-
-
-
-
-
-
-
 // // Chaining Promises
 
 // //NOTE: .then in promises always return a promise
@@ -154,35 +119,24 @@
 //   });
 
 // function job1() {
-  // return new Promise(function (resolve, reject) {
-  //   setTimeout(function () {
-  //     resolve("result of job 1");
-  //   }, 1000);
+// return new Promise(function (resolve, reject) {
+//   setTimeout(function () {
+//     resolve("result of job 1");
+//   }, 1000);
 //   });
 // }
 
 // function job2() {
-  // return new Promise(function (resolve, reject) {
-  //   setTimeout(function () {
-  //     resolve("result of job 2");
-  //   }, 1000);
-  // });
+// return new Promise(function (resolve, reject) {
+//   setTimeout(function () {
+//     resolve("result of job 2");
+//   }, 1000);
+// });
 // }
-
-
-
-
-
-
-
-
-
 
 // // When you deal with promise chaining, you must avoid some traps.
 
-
 // // A)
-
 
 // async function test() {
 //   return job().then(function (data) {             //   The result of promise.then is a lost promise because no one can interact with it.
@@ -246,16 +200,111 @@
 
 // console.log("test " ,await test());
 
-
-
 // If you want to create an auto-resolved promise with a simple value, use Promise.resolve:
 
-function job() {
-  if (false) {
-      return aNewPromise();
-  } else {
-      return Promise.resolve(42); // return an auto-resolved promise with `42` in data.
-  }
-}
+// function job() {
+//   if (false) {
+//       return aNewPromise();
+//   } else {
+//       return Promise.resolve(42); // return an auto-resolved promise with `42` in data.
+//   }
+// }
 
-console.log(job());
+// console.log(job());
+
+//Key Difference to be noted!                             Very Important Concept!
+
+// // Example 1
+// var num = 80;
+// let promise = new Promise ((resolved, rejected) => {
+//   if (num < 101) {
+//     resolved();
+//   }else {
+//     rejected();
+//   }
+// })
+
+// // promise.then(function(data) {
+// //     console.log(data);
+// // }, function(error) {
+// //     console.error(error);
+// // });
+
+// promise.then(function(data) {
+//     console.log(data);
+//     throw "rejected error in then success handler But prints in catch handler"
+// }).catch(function(data) {
+//   console.log(data);
+// })
+
+// // Promise.all                                                    Very important concept!
+
+// // part # 1
+
+// function job(delay) {
+//   return new Promise(function(resolve,reject) {
+//       setTimeout(function() {
+
+//           if (delay != 1000) {
+//             console.log('Resolving', delay);
+//             resolve('done ' + delay);
+//           } else {
+//             console.log('Rejecting', delay);
+//             reject('undone' + delay);
+//           }
+//       }, delay);
+//   });
+// }
+
+// // Sometimes we have multiple asynchronous tasks to perform , we can achieve this using Promise.all(This is itself a Promise)
+// var promise = Promise.all([job(1000), job(2000), job(500), job(1500)]);    //
+// // var promise = job(1000)
+
+// // and you have to start something when every task is done.                   //Confusion in this line !        // #confusion cleared!
+// promise.then(function(data) {
+//   console.log('All done');
+
+//   data.forEach(function(text) {
+//       console.log(text);
+//   });
+// })
+// .catch(function (error) {
+//   console.log(error)
+// })
+
+
+// part #02
+
+let p1 = new Promise(function (resolve, reject) {
+  setTimeout(resolve, 500, "p1");
+});
+
+let p2 = new Promise(function (resolve, reject) {
+  setTimeout(resolve, 1000, "p2");
+});
+
+let p3 = new Promise(function (resolve, reject) {
+  setTimeout(resolve, 1200, "p3");
+});
+
+let p4 = new Promise(function (resolve, reject) {
+  setTimeout(reject, 300, "p4");
+});
+
+let p5 = new Promise(function (resolve, reject) {
+  setTimeout(resolve, 800, "p5");
+});
+
+let promise = Promise.all([p1, p2, p3, p4, p5]);
+
+promise
+
+  .then(function (data) {
+    data.forEach(function (data) {
+      cconsole.log(data);
+    });
+  })
+
+  .catch(function (error) {
+    console.error("error", error);
+  });

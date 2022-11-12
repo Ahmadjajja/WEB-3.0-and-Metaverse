@@ -73,23 +73,28 @@
 
 
 
-// async await
+// // async await
 
-function saySomething(x, delay) {
-    return new Promise(resolve => {
-    setTimeout(() => {
-    resolve("something" + x);
-    }, delay);
-    });
-   }
-   async function talk(x, delay) {
-    const words =await saySomething(x, delay);
-    console.log(words);
-   }
-   talk(2, 500);
-   talk(4, 2000);
-   talk(8 , 700);
+// function saySomething(x, delay) {
+//     return new Promise(resolve => {
+//     setTimeout(() => {
+//     resolve("something" + x);
+//     }, delay);
+//     });
+//    }
+//    function talk(x, delay) {
+//     const words =saySomething(x, delay);
+//     console.log(words);
+//     return words;
+//    }
+//    ;
+//    console.log(await talk(2, 500));
+//    console.log(await talk(4, 2000));
+//    console.log(await talk(8 , 700));
    
+
+
+//EVENT LOOP
 
 
 

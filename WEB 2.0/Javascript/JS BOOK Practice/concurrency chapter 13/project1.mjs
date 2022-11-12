@@ -11,7 +11,7 @@ let passwordValidity = (password) => {
         }
     })
 }
-passwordValidity("ahmad78").then((value) => {    //step 4 & step 5
+passwordValidity("ahmad786").then((value) => {    //step 4 & step 5
     console.log(value)
 })
 .catch((value) => {

@@ -86,7 +86,7 @@ function logRecursive(nr) {
     logRecursive(nr - 1);
     } else {
     console.log("done with recursion");
-    }
+    }  
     console.log("Ended function:", nr);
    }
    logRecursive(3);

@@ -273,38 +273,123 @@
 // })
 
 
-// part #02
+// // part #02
 
-let p1 = new Promise(function (resolve, reject) {
-  setTimeout(resolve, 500, "p1");
-});
 
-let p2 = new Promise(function (resolve, reject) {
-  setTimeout(resolve, 1000, "p2");
-});
+// // Beware, Promise.all has a fail-fast behavior. If a given promise is rejected,
+// //  the resulting promise of Promise.all will be rejected at this exact moment. 
+// //  It will not wait for the other promises to complete, and the only received data 
+// //  is the error of the rejected request. See the following example for a better understanding.
 
-let p3 = new Promise(function (resolve, reject) {
-  setTimeout(resolve, 1200, "p3");
-});
 
-let p4 = new Promise(function (resolve, reject) {
-  setTimeout(reject, 300, "p4");
-});
 
-let p5 = new Promise(function (resolve, reject) {
-  setTimeout(resolve, 800, "p5");
-});
+// let p1 = new Promise(function (resolve, reject) {
+//   setTimeout(resolve, 500, "p1");      // I think this is another syntax of setTimeout in js.
+// });
 
-let promise = Promise.all([p1, p2, p3, p4, p5]);
+// let p2 = new Promise(function (resolve, reject) {
+//   console.log(1000);
+//   setTimeout(resolve, 1000, "p2");
+// });
 
-promise
+// let p3 = new Promise(function (resolve, reject) {
+//   console.log(1200);
+//   setTimeout(resolve, 1200, "p3");
+// });
 
-  .then(function (data) {
-    data.forEach(function (data) {
-      cconsole.log(data);
-    });
-  })
+// let p4 = new Promise(function (resolve, reject) {
+//   console.log(300);
+//   setTimeout(reject, 300, "p4");
+// });
 
-  .catch(function (error) {
-    console.error("error", error);
-  });
+// let p5 = new Promise(function (resolve, reject) {
+//   setTimeout(resolve, 800, "p5");
+//   console.log(800);
+
+// });
+
+// let promise =Promise.all([p1, p2, p3, p4, p5]);
+
+// // console.log(promise);
+
+// promise
+
+//   .then(function (data) {
+//     data.forEach(function (data) {
+//       console.log(data);
+//     });
+//   })
+
+//   .catch(function (error) {
+//     console.error("error", error);
+//   });
+
+
+// // Note Carefully!
+// // You should only use Promise.all when you need for all of your promises to resolve successfully.
+
+
+// // What if you want to start multiple asynchronous jobs at once and you want results even if a job is rejected?
+
+// let p1 = new Promise(function(resolve, reject) {
+//   setTimeout(reject, 500, 'p1');
+// });
+
+// let p2 = new Promise(function(resolve, reject) {
+//   setTimeout(resolve, 1000, 'p2');
+// });
+
+// let p3 = new Promise(function(resolve, reject) {
+//   setTimeout(resolve, 1200, 'p3');
+// });
+
+// let p4 = new Promise(function(resolve, reject) {
+//   setTimeout(reject, 300, 'p4');
+// });
+
+// let p5 = new Promise(function(resolve, reject) {
+//   setTimeout(resolve, 800, 'p5');
+// });
+  
+// // Below line is very important!
+
+// let promise = Promise.all([p1.catch(function() {}), p2.catch(function() {}), p3.catch(function() {}), p4.catch(function() {}), p5.catch(function() {})]);
+
+// promise
+
+// .then(function(data) {
+//   data.forEach(function(data) {
+//       console.log(data);
+//   });
+//   // console.log(data);
+// })
+
+// .catch(function(error) {
+//   console.error('error', error);
+//  });
+
+
+
+// // Promise.race
+// // Promise.race takes an array of promises. 
+// // The result is a new promise that resolves or rejects
+// // as soon as one of the promises in the given array resolves or rejects.
+
+
+
+// function delay(time) {
+//   return new Promise(function(resolve, reject) {
+//       // setTimeout(reject, time, 'reject ' + time);
+//       setTimeout(resolve, time, 'resolve ' + time);
+//   });
+// }
+
+// Promise.race([delay(500), delay(100), delay(50)]).then(function(data) {
+//   console.log(data);
+// })
+// .catch((data)=> console.log(data));
+
+
+
+
+

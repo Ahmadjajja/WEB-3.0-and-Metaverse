@@ -69,3 +69,26 @@
 // console.log(something(3, 4, 5, 6, 7));
 
 
+//recursive function
+function getRecursive(nr) {
+    console.log(nr);
+    if (nr > 0) {
+        getRecursive(--nr);
+    }
+   }
+   getRecursive(3);
+   
+
+//    another function                  // very interesting example for understanding recursive functions
+function logRecursive(nr) {
+    console.log("Started function:", nr);
+    if (nr > 0) {
+    logRecursive(nr - 1);
+    } else {
+    console.log("done with recursion");
+    }
+    console.log("Ended function:", nr);
+   }
+   logRecursive(3);
+
+

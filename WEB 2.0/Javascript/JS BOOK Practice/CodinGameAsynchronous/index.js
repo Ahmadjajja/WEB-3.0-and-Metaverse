@@ -47,20 +47,20 @@
 
 // //promises practice
 
-// function job() {       // out of understanding   ,,, must solve this.
-//     let promise;
-//     setTimeout(function(){
-//         promise = new Promise((resolve,reject) => {
-//         resolve("hello world");
-//         })
-//         console.log();
+// async function job() {
+//   // out of understanding   ,,, must solve this.
+//   return  new Promise((resolve, reject) => {
+//     setTimeout(function () {
+//       resolve("hello world");
 //     }, 2000);
+//     // console.log();
 
 //     console.log("2nd log");
-//     return promise;
+//     // return promise;
+//   });
 // }
 
-// job();
+// console.log(await job());
 
 // Let's do a harder exercise. In this code, your function receives a parameter data.
 // You must modify the code below based on the following rules:
@@ -82,14 +82,14 @@
 //             },1000)
 //         }else {
 //             setTimeout(()=> {
-//                 resolved("even");
+//                 rejected("even");
 //                 console.log("even");
 //             }, 2000)
 //         }
 //     })
 // }
 
-// console.log(job1(56));    // Promise { <pending> }
+// console.log(await job1(56));    // Promise { <pending> }
 
 // // Chaining Promises
 
@@ -272,16 +272,12 @@
 //   console.log(error)
 // })
 
-
 // // part #02
 
-
 // // Beware, Promise.all has a fail-fast behavior. If a given promise is rejected,
-// //  the resulting promise of Promise.all will be rejected at this exact moment. 
-// //  It will not wait for the other promises to complete, and the only received data 
+// //  the resulting promise of Promise.all will be rejected at this exact moment.
+// //  It will not wait for the other promises to complete, and the only received data
 // //  is the error of the rejected request. See the following example for a better understanding.
-
-
 
 // let p1 = new Promise(function (resolve, reject) {
 //   setTimeout(resolve, 500, "p1");      // I think this is another syntax of setTimeout in js.
@@ -324,10 +320,8 @@
 //     console.error("error", error);
 //   });
 
-
 // // Note Carefully!
 // // You should only use Promise.all when you need for all of your promises to resolve successfully.
-
 
 // // What if you want to start multiple asynchronous jobs at once and you want results even if a job is rejected?
 
@@ -350,7 +344,7 @@
 // let p5 = new Promise(function(resolve, reject) {
 //   setTimeout(resolve, 800, 'p5');
 // });
-  
+
 // // Below line is very important!
 
 // let promise = Promise.all([p1.catch(function() {}), p2.catch(function() {}), p3.catch(function() {}), p4.catch(function() {}), p5.catch(function() {})]);
@@ -368,14 +362,10 @@
 //   console.error('error', error);
 //  });
 
-
-
 // // Promise.race
-// // Promise.race takes an array of promises. 
+// // Promise.race takes an array of promises.
 // // The result is a new promise that resolves or rejects
 // // as soon as one of the promises in the given array resolves or rejects.
-
-
 
 // function delay(time) {
 //   return new Promise(function(resolve, reject) {
@@ -388,8 +378,3 @@
 //   console.log(data);
 // })
 // .catch((data)=> console.log(data));
-
-
-
-
-

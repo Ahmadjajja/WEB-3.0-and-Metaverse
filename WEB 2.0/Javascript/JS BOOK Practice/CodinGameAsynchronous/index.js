@@ -70,28 +70,28 @@
 // // If data is an odd number, return a promise resolved 1 second later and give the data "odd" (in a string)
 // // If data is an even number, return a promise rejected 2 seconds later and give the data "even" (in a string)
 
-function job1(data) {
-    return new Promise(function (resolved, rejected) {
-        if(isNaN(data)){
-            rejected("error")
-            console.log("error");
-        }else if(data % 2 != 0){
-            setTimeout(()=> {
-                resolved("odd");
-                console.log("odd");
-            },1000)
-        }else {
-            setTimeout(()=> {
-                resolved("even");
-                // console.log("even");
-            }, 2000)
-        }
-    })
-}
+// function job1(data) {
+//     return new Promise(function (resolved, rejected) {
+//         if(isNaN(data)){
+//             rejected("error")
+//             console.log("error");
+//         }else if(data % 2 != 0){
+//             setTimeout(()=> {
+//                 resolved("odd");
+//                 console.log("odd");
+//             },1000)
+//         }else {
+//             setTimeout(()=> {
+//                 resolved("even");
+//                 // console.log("even");
+//             }, 2000)
+//         }
+//     })
+// }
 
-console.log(await job1(56));    // Promise { <pending> }
+// console.log(await job1(56));    // Promise { <pending> }
 
-console.log("output will display below job1 function output")
+// console.log("output will display below job1 function output")
 
 // // Chaining Promises
 
@@ -328,7 +328,12 @@ console.log("output will display below job1 function output")
 // // What if you want to start multiple asynchronous jobs at once and you want results even if a job is rejected?
 
 // let p1 = new Promise(function(resolve, reject) {
-//   setTimeout(reject, 500, 'p1');
+// //   setTimeout(reject, 500, 'rejected p1');
+
+//   setTimeout(() => {    // similar to above line code.
+//     reject("rejected p1");
+//   }, 500);
+// //   throw "something"
 // });
 
 // let p2 = new Promise(function(resolve, reject) {
@@ -340,16 +345,16 @@ console.log("output will display below job1 function output")
 // });
 
 // let p4 = new Promise(function(resolve, reject) {
-//   setTimeout(reject, 300, 'p4');
+//   setTimeout(reject, 300, 'rejected p4');
 // });
 
 // let p5 = new Promise(function(resolve, reject) {
 //   setTimeout(resolve, 800, 'p5');
 // });
 
-// // Below line is very important!
+// // // Below line is very important!
 
-// let promise = Promise.all([p1.catch(function() {}), p2.catch(function() {}), p3.catch(function() {}), p4.catch(function() {}), p5.catch(function() {})]);
+// let promise = Promise.all([p1.catch(function(error) {return error}), p2.catch(function(error) {return error}), p3.catch(function(error) {return error}), p4.catch(function(error) {return error}), p5.catch(function(error) {return error})]);
 
 // promise
 

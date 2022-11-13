@@ -1,7 +1,15 @@
 import promptSync from "prompt-sync";
+
 const prompt = promptSync();
 
-const numberToWordConversion = (num) => {                         //parent Function for number to word conversion
+const nm = prompt("Enter a number to convert in Word: ");
+
+var word = numberToWordConversion(nm);
+
+console.log(word);
+
+function numberToWordConversion(num) {
+  //parent Function for number to word conversion
 
   // Below child functions for different number of digit conversions
 
@@ -62,14 +70,17 @@ const numberToWordConversion = (num) => {                         //parent Funct
     // }
 
     let elem1;
-    if (n5.charAt(0) != 0) {      //11 or 10
+    if (n5.charAt(0) != 0) {
+      //11 or 10
       elem1 = n5.charAt(0).toString() + n5.charAt(1).toString();
       //   console.log("elem1", elem1)
       elem1 = twoDigitConverter(elem1) + " Thousand ";
-    } else if (n5.charAt(0) == 0 && n5.charAt(1) != 0) {      //01
+    } else if (n5.charAt(0) == 0 && n5.charAt(1) != 0) {
+      //01
       elem1 = n5.charAt(1);
       elem1 = wordsUpTo19[elem1] + " Thousand ";
-    } else {      //00
+    } else {
+      //00
       elem1 = "";
     }
 
@@ -89,13 +100,16 @@ const numberToWordConversion = (num) => {                         //parent Funct
   };
   const sevenDigitConverter = (n7) => {
     let elem1;
-    if (n7.charAt(0) != 0) {      //11 or 10
+    if (n7.charAt(0) != 0) {
+      //11 or 10
       elem1 = n7.charAt(0) + n7.charAt(1);
       elem1 = twoDigitConverter(elem1) + " Lakhs ";
-    } else if (n7.charAt(0) == 0 && n7.charAt(1) != 0) {      //01
+    } else if (n7.charAt(0) == 0 && n7.charAt(1) != 0) {
+      //01
       elem1 = n7.charAt(1);
       elem1 = wordsUpTo19[elem1] + " Lakh ";
-    } else {      //00
+    } else {
+      //00
       elem1 = "";
     }
     let word = elem1 + fiveDigitConverter(n7.substring(2));
@@ -116,13 +130,16 @@ const numberToWordConversion = (num) => {                         //parent Funct
 
   const nineDigitConverter = (n9) => {
     let elem1;
-    if (n9.charAt(0) != 0) {      //11 or 10
+    if (n9.charAt(0) != 0) {
+      //11 or 10
       elem1 = n9.charAt(0) + n9.charAt(1);
       elem1 = twoDigitConverter(elem1) + " Crores ";
-    } else if (n9.charAt(0) == 0 && n9.charAt(1) != 0) {      //01
+    } else if (n9.charAt(0) == 0 && n9.charAt(1) != 0) {
+      //01
       elem1 = n9.charAt(1);
       elem1 = wordsUpTo19[elem1] + " Crore ";
-    } else {      //00
+    } else {
+      //00
       elem1 = "";
     }
     let word = elem1 + sevenDigitConverter(n9.substring(2));
@@ -143,13 +160,16 @@ const numberToWordConversion = (num) => {                         //parent Funct
 
   const elevenDigitConverter = (n11) => {
     let elem1;
-    if (n11.charAt(0) != 0) {      //11 or 10
+    if (n11.charAt(0) != 0) {
+      //11 or 10
       elem1 = n11.charAt(0) + n11.charAt(1);
       elem1 = twoDigitConverter(elem1) + " Arab ";
-    } else if (n11.charAt(0) == 0 && n11.charAt(1) != 0) {      //01
+    } else if (n11.charAt(0) == 0 && n11.charAt(1) != 0) {
+      //01
       elem1 = n11.charAt(1);
       elem1 = wordsUpTo19[elem1] + " Arab ";
-    } else {      //00
+    } else {
+      //00
       elem1 = "";
     }
     let word = elem1 + nineDigitConverter(n11.substring(2));
@@ -169,13 +189,16 @@ const numberToWordConversion = (num) => {                         //parent Funct
 
   const thirteenDigitConverter = (n13) => {
     let elem1;
-    if (n13.charAt(0) != 0) {      //11 or 10
+    if (n13.charAt(0) != 0) {
+      //11 or 10
       elem1 = n13.charAt(0) + n13.charAt(1);
       elem1 = twoDigitConverter(elem1) + " Kharab ";
-    } else if (n13.charAt(0) == 0 && n13.charAt(1) != 0) {      //01
+    } else if (n13.charAt(0) == 0 && n13.charAt(1) != 0) {
+      //01
       elem1 = n13.charAt(1);
       elem1 = wordsUpTo19[elem1] + " Kharab ";
-    } else {      //00
+    } else {
+      //00
       elem1 = "";
     }
     let word = elem1 + elevenDigitConverter(n13.substring(2));
@@ -184,14 +207,13 @@ const numberToWordConversion = (num) => {                         //parent Funct
 
   const moreThanThirteenDigitConverter = (anyNumber) => {
     let word = "";
-    let counter = 0;    //counter uses for termination condition in while loop
-    let arrNums = [];   //This array will store different sub portion given number
-    let arrWords = [];  //This array will store different sub portion required word from given number
+    let counter = 0; //counter uses for termination condition in while loop
+    let arrNums = []; //This array will store different sub portion given number
+    let arrWords = []; //This array will store different sub portion required word from given number
     let index = 0;
     while (counter == 0) {
       if (anyNumber.length > 13) {
-
-        arrNums.push(anyNumber.slice(-11));  
+        arrNums.push(anyNumber.slice(-11));
 
         anyNumber = anyNumber.slice(0, anyNumber.length - 11);
         // console.log(arrNums[index]);
@@ -201,8 +223,7 @@ const numberToWordConversion = (num) => {                         //parent Funct
         arrWords.push(word);
 
         index++;
-      } 
-      else {
+      } else {
         switch (anyNumber.length) {
           case 1:
             word = wordsUpTo19[Number.parseInt(anyNumber)];
@@ -263,7 +284,6 @@ const numberToWordConversion = (num) => {                         //parent Funct
         }
         counter++;
       }
-      
     }
     index = 0;
     word = "";
@@ -273,10 +293,10 @@ const numberToWordConversion = (num) => {                         //parent Funct
       // console.log(i != arrWords.length);
       // console.log(arrWords);
       if (i == arrWords.length) {
-        word = arrWords[i-1] + " Kharab ";
+        word = arrWords[i - 1] + " Kharab ";
         // console.log("Word inside loop at " + i + ": " + word);
       } else {
-        word =  word + arrWords[i-1];
+        word = word + arrWords[i - 1];
         // console.log("Word inside loop at " + i + ": " + word);
       }
     }
@@ -369,8 +389,4 @@ const numberToWordConversion = (num) => {                         //parent Funct
   }
 
   return word;
-};
-
-const nm = prompt("Enter a number to convert in Word: ");
-let word = numberToWordConversion(nm);
-console.log(word);
+}

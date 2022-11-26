@@ -52,7 +52,7 @@ function welcome() {
                     return [4 /*yield*/, sleep()];
                 case 1:
                     _a.sent();
-                    rainbowTitle.stop(); //stop
+                    rainbowTitle.stop(); //stop  
                     return [2 /*return*/];
             }
         });

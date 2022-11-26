@@ -11,7 +11,7 @@ async function welcome() {
     let rainbowTitle = chalkAnimation.rainbow('Lorem ipsum dolor sit amet');  //start
 
     await sleep();  
-    rainbowTitle.stop();  //stop
+    rainbowTitle.stop();  //stop  
 }
 
 welcome();

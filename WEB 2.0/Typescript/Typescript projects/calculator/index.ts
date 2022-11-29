@@ -1,115 +1,109 @@
-import inquirer from "inquirer";
+import inquirer from "inquirer"; // uses for taking input in the form question or in simple way
 import chalk from "chalk";
-import chalkAnimation, { rainbow } from "chalk-animation";
+import chalkAnimation from "chalk-animation";
 
-const wait = (seconds = 2000) =>
-  new Promise((resolve) => setTimeout(resolve, seconds));
+const calculator = () => {
+  const wait = (sec: number = 2000) => {
+    return new Promise((resolve) => setTimeout(resolve, sec));
+  };
 
-const welcome = async function () {
-  // welcomes the user
+  const welcome = async function () {
+    //welcome to the user
+    const rainbow = chalkAnimation.rainbow("Welcome to my calculator CLI App"); //chalk animation start
+    //waits 2000 seconds
 
-  // chalk animation starts
-  const rainbow = chalkAnimation.rainbow("Welcome to the calculator App");
+    await wait();
+    rainbow.stop();
+    // console.log(`${chalk.magentaBright("HOW TO USE")} \n Enter The Numbers \n Then \n Select Operations`);
+  };
 
-  // waits 2000 seconds
-  await wait();
-  rainbow.stop();
-  console.log(`${chalk.magentaBright("HOW TO USE")}
-  Enter the numbers
-  Selct operation`);
-};
+  //takes the user input
 
-// takes the user input
+  let firstNumber: number;
+  let secondNumber: number;
+  let operator: string;
 
-let numberFirst: number;
-let numberSecond: number;
-let operator: string;
+  const askNumber = async function () {
+    const num1 = await inquirer.prompt({
+      name: "firstNumber",
+      type: "number",
+      message: "Enter first Number",
+    });
+    const num2 = await inquirer.prompt({
+      name: "secondNumber",
+      type: "number",
+      message: "Enter second Number",
+    });
 
-const askNumber = async function () {
-  const inputNmbrFirst = await inquirer.prompt({
-    name: "numberFirst",
-    type: "number",
-    message: "Enter first number:",
-  });
+    firstNumber = num1.firstNumber;
+    secondNumber = num2.secondNumber;
+  };
 
-  numberFirst = inputNmbrFirst.numberFirst;
+  const promptOperations = async function () {
+    const operation = await inquirer.prompt({
+      name: "operator",
+      type: "list",
+      message: "Select Operation:",
+      choices: ["/", "*", "+", "-"],
+    });
 
-  const inputNmbrSecond = await inquirer.prompt({
-    name: "numberSecond",
-    type: "number",
-    message: "Enter second number:",
-  });
+    operator = operation.operator;
+  };
 
-  numberSecond = inputNmbrSecond.numberSecond;
-};
+  const handleOperations = async function (operator: string) {
+    let result;
+    switch (operator) {
+      case "/":
+        result = firstNumber / secondNumber;
+        break;
+      case "*":
+        result = firstNumber * secondNumber;
+        break;
+      case "+":
+        result = firstNumber + secondNumber;
+        break;
+      case "-":
+        result = firstNumber - secondNumber;
+        break;
 
-// handle the operations
+      default:
+        break;
+    }
 
-const propmtOperations = async function () {
-  // "/""x" ,"+", "-"
+    console.log(chalk.blueBright(result));
+  };
 
-  const operation = await inquirer.prompt({
-    name: "operator",
-    type: "list",
-    message: "select operation:",
-    choices: ["(÷)Divide", "(x)Multiply", "(+)Add", "(-)Subtaract"],
-  });
+  //Continue calculation
+  const continueCalc = async () => {
+    const continueProcess = await inquirer.prompt({
+      name: "again",
+      type: "confirm",
+      message: "Do you want to continue ?",
+    });
+    let userWantstoContinue: boolean = false;
+    userWantstoContinue = continueProcess.again;
 
-  operator = operation.operator;
-};
+    if (userWantstoContinue) {
+      await askNumber();
+      await promptOperations();
+      await handleOperations(operator);
+      await continueCalc();
+    } else {
+      return;
+    }
+  };
 
-// handle operations
+  console.clear();
 
-const handleOperations = async (operator: string) => {
-  let total;
-  if (operator === "(÷)Divide") {
-    total = numberFirst / numberSecond;
-  } else if (operator === "(x)Multiply") {
-    total = numberFirst * numberSecond;
-  } else if (operator === "(+)Add") {
-    total = numberFirst + numberSecond;
-  } else if (operator === "(-)Subtaract") {
-    total = numberFirst - numberSecond;
-  }
-
-  console.log(chalk.blue(total));
-};
-
-//Ask if the user wants to continue
-
-const continueCalc = async function () {
-  const continueProcess = await inquirer.prompt({
-    name: "again",
-    type: "confirm",
-    message: "Do you want to continue?",
-  });
-
-  // this will return a boolean
-  let userWantstoContinue: boolean = false;
-  userWantstoContinue = continueProcess.again;
-
-  if (userWantstoContinue) {
+  const render = async () => {
+    await welcome();
     await askNumber();
-    await propmtOperations();
+    await promptOperations();
     await handleOperations(operator);
     await continueCalc();
-  } else {
-    return;
-  }
+  };
+
+  render();
 };
 
-//clears the console befor starting the app
-console.clear();
-
-const render = async function () {
-  await welcome();
-  await askNumber();
-  await propmtOperations();
-  await handleOperations(operator);
-  await continueCalc();
-};
-render();
-
-
-
-
+calculator();

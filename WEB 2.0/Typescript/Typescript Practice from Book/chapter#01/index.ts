@@ -1,3 +1,1 @@
-console.log('====================================');
-console.log("ahmad is working");
-console.log('====================================');
+console.blub("Nothing is worth more than laughter.");

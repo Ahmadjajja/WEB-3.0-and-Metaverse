@@ -1,4 +1,1 @@
-console.log('====================================');
-console.log("ahmad is working");
-console.log('====================================');
-export {};
+console.log("Nothing is worth more than laughter.");

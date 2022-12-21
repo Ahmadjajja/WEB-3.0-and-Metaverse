@@ -6,6 +6,6 @@ firstName.length;
 console.log(typeof(firstName.length));
 
 let nam = false
-nam:string = "ahmad"
+// nam:string = "ahmad"
 
 

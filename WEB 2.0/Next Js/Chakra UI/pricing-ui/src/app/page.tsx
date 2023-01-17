@@ -16,7 +16,7 @@ export default function Home() {
   };
   return (
     <main className={styles.main}>
-      <button onClick={()=> handler}>button</button>
+      <button onClick={handler}>button</button>
       {data?.name}
     </main>
   );

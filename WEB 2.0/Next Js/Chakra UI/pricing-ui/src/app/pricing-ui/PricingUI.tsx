@@ -12,6 +12,13 @@ import {
 } from "@chakra-ui/react";
 import { MdCheckCircle, MdSettings } from "react-icons/md";
 import { css } from "@emotion/react";
+import styles from "../page.module.css";
+// import star from "../../../public/star.jpeg"
+const star = require("../../../public/star.jpeg")
+import circle from "../../../public/circle.jpeg"
+import starCircle from "../../../public/starCircle.jpeg"
+import Image from 'next/image';
+
 function PricingUI() {
   return (
     <>
@@ -34,6 +41,7 @@ function PricingUI() {
         flexDirection={["column", "column", "row"]}
         mt={"-80px"}
         zIndex={100}
+        className={styles.detailedPortion}
       >
         <Box
           display={"flex"}
@@ -68,22 +76,22 @@ function PricingUI() {
               business
             </Text>
             <ListItem>
-              <ListIcon as={MdCheckCircle} color="green.500" />
+              <ListIcon as={MdCheckCircle} color="#652CD3" />
               International calling and messaging API
             </ListItem>
 
             <ListItem>
-              <ListIcon as={MdCheckCircle} color="green.500" />
+              <ListIcon as={MdCheckCircle} color="#652CD3" />
               Additional phone numbers
             </ListItem>
 
             <ListItem>
-              <ListIcon as={MdCheckCircle} color="green.500" />
+              <ListIcon as={MdCheckCircle} color="#652CD3" />
               Automated messages via Zapier
             </ListItem>
 
             <ListItem>
-              <ListIcon as={MdCheckCircle} color="green.500" />
+              <ListIcon as={MdCheckCircle} color="#652CD3" />
               24/7 support and consulting
             </ListItem>
           </List>
@@ -94,16 +102,23 @@ function PricingUI() {
         padding={["0 20px", "0 20px", "0 150px"]}
         backgroundColor={"white"}
       >
-        <Flex p={10} bgColor={"#7345AC"} w={"33.3%"}>
-          <Text display={'flex'}>
-            <span className="star">...</span> 30 days money back guarantee
-          </Text>
+        <Flex p={10} w={"33.3%"}>
+          <Image src={star} alt="star" />
+          <Heading as="h6" size="sm" display={"flex"} pb={2}>
+            30 days money back guarantee
+          </Heading>
         </Flex>
-        <Flex p={10} bgColor={"#F345DC"} w={"33.4%"}>
-          No setup fees 100% hastle-free{" "}
+        <Flex p={10} w={"33.4%"}>
+        <Image src={starCircle} alt="starCircle" />
+          <Heading as="h6" size="sm" display={"flex"}>
+            No setup fees 100% hastle-free{" "}
+          </Heading>
         </Flex>
-        <Flex p={10} bgColor={"#A322AC"} w={"33.3%"}>
-          No monthly subscription pay once and for all
+        <Flex p={10} w={"33.3%"}>
+          <Image src={circle} alt="circle" />
+          <Heading as="h6" size="sm" display={"flex"}>
+            No monthly subscription pay once and for all
+          </Heading>
         </Flex>
       </Flex>
     </>

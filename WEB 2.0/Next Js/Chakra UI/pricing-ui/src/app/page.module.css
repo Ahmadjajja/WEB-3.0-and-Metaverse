@@ -1,2 +1,21 @@
+.detailedPortion{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;    /* background-color: green; */
+}
+.icon{
+    /* Vector */
 
+position: absolute;
+width: 40px;
+height: 40px;
+left: 267px;
+top: 653px;
 
+/* gray / 300 */
+border: 4.8px solid #CBD5E0;
+
+}
+
+.Imgs{
+    height: 50%;
+    width: 50%;
+}

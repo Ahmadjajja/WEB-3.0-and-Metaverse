@@ -103,19 +103,19 @@ function PricingUI() {
         backgroundColor={"white"}
       >
         <Flex p={10} w={"33.3%"}>
-          <Image src={star} alt="star" />
+          <Image className="Imgs" src={star} alt="star" />
           <Heading as="h6" size="sm" display={"flex"} pb={2}>
             30 days money back guarantee
           </Heading>
         </Flex>
         <Flex p={10} w={"33.4%"}>
-        <Image src={starCircle} alt="starCircle" />
+        <Image className="Imgs" src={starCircle} alt="starCircle" />
           <Heading as="h6" size="sm" display={"flex"}>
             No setup fees 100% hastle-free{" "}
           </Heading>
         </Flex>
         <Flex p={10} w={"33.3%"}>
-          <Image src={circle} alt="circle" />
+          <Image className="Imgs"  src={circle} alt="circle" />
           <Heading as="h6" size="sm" display={"flex"}>
             No monthly subscription pay once and for all
           </Heading>

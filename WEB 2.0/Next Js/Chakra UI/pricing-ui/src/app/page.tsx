@@ -14,7 +14,7 @@ export default function Home() {
         console.log(data);
         setData(data);
       });
-  };
+  }; 
   return (
     <ChakraProvider>
       <main className={styles.main}>
